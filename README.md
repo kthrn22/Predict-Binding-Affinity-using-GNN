@@ -6,7 +6,7 @@ Binding affinity is the strength of the binding interaction between a biomolecul
 
 * Embedding the 3D structure of a protein-ligand complex
 
-$\mathbf{A}^1$ adjacency matrix for covalent bond (intramolecular)
+$\mathbf{A}^1$ adjacency matrix for covalent bond (only consider intramolecular forces)
 
 $$
 \begin{split}
@@ -18,7 +18,7 @@ $$
 \end{split}
 $$
 
-$\mathbf{A}^2$ adjacency matrix for covalent and non-covalent bond (intermolecular)
+$\mathbf{A}^2$ adjacency matrix for covalent and non-covalent bond (consider intermolecular + intramolecular forces)
 
 $$
 \begin{split}
@@ -33,7 +33,7 @@ $$
 
 where $\alpha, \beta$ are learnable parameters, and $e^{-(d_{ij} - \alpha)^2 / \beta}$ represents the strength of intermoleculars bonds: indicates that their strength is weaker than covalent bonds, and as the distance increases, the strength gets weaker
 
-* Graph-attention 
+* Graph-attention Layer
 
 Input: node features $\mathbf{X_{\text{in}}} = \{\mathbf{x_1}, \dots, \mathbf{x_N}\}$ with $\mathbf{x_i} \in \mathbb{R}^F$ ($F$ is the number of features, $N$ is the number of nodes)
 
@@ -52,9 +52,8 @@ Update:
 
 $$\hat{\mathbf{x_i}} = \sum_{j \in N(i)} a_{ij} \mathbf{x_j}$$ 
 
-(Aggregration step, might try other aggregrate operator, GAT flavour)
-
 Gated: 
+
 $$z_i = \sigma((\text{CONCAT}[\mathbf{x_{in}}, \mathbf{\hat{x_i}}]) \mathbf{U} + b)$$
 
 where $\mathbf{U} \in \mathbb{R}^{2F \times 1}$ is a learnable matrix, $b$ is a learnable scalar value, $\sigma$ is sigmoid function
@@ -67,15 +66,20 @@ where $z_i$ controls how much should the input ($\mathbf{x}_{in}$) should be del
 
 * Architecture:
 
-$\mathbf{x_{out}^1} = Graph-attention(\mathbf{A^1}, \mathbf{x})$, $\mathbf{x_{out}^2} = Graph-attention(\mathbf{A^2}, \mathbf{x})$
+$\mathbf{x_{out}^1} = Graph-attention-layer(\mathbf{A^1}, \mathbf{x})$, $\mathbf{x_{out}^2} = Graph-attention-layer(\mathbf{A^2}, \mathbf{x})$
 
 $\mathbf{x_{out}} = \mathbf{x_{out}^2} - \mathbf{x_{out}^1}$
 
 Subtracting 2 node features, the model will learn the differences when the protein and ligan binds ($\mathbf{x_{out}^2}$) and when they are seperated ($\mathbf{x_{out}^1}$)
 
-Representation of the ligand-protein comples:
+Representation of the ligand-protein complex:
 $\mathbf{x_{complex}} = \sum \mathbf{x_{out}}$ 
+
+The aboved representation can be fed into a MLP to predict the binding affinity (treat this as a regression task)
+
 ## Data processing
+
+All data processing functions in '''utils.py'''
 
 ## References
 
