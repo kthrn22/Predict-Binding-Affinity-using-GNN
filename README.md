@@ -75,8 +75,6 @@ Subtracting 2 node features, the model will learn the differences when the prote
 
 Representation of the ligand-protein comples:
 $\mathbf{x_{complex}} = \sum \mathbf{x_{out}}$ 
-
-
 ## Data processing
 
 ## References
