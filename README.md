@@ -43,7 +43,7 @@ $$\mathbf{x_i} = W\mathbf{x_i}$$
 Compute attention coefficient (the importand of $i^{th}$ node feature to $j^{th}$ node feature): 
 $$e_{ij} = e_{ji} = \mathbf{x}^{T}_i \mathbf{E} \mathbf{x}_j + \mathbf{x}^{T}_j \mathbf{E} \mathbf{x}_i$$
 
-with $\mathbf{E} \in \mathbb{R}^{F \times F}$ is a learnable matrix, only compute $e_{ij}$ if $\mathbf{A_{ij}} = \mathbf{A_{ij}} >0 $
+with $\mathbf{E} \in \mathbb{R}^{F \times F}$ is a learnable matrix, only compute $e_{ij}$ if $\mathbf{A_{ij}} = \mathbf{A_{ji}} >0 $
 
 Normalize attention coefficient: 
 $$a_{ij} = \frac{\exp(e_{ij})}{\sum_{j \in N(i)} \exp(e_{ij})} \mathbf{A_{ij}}$$
@@ -75,7 +75,7 @@ Subtracting 2 node features, the model will learn the differences when the prote
 Representation of the ligand-protein complex:
 $\mathbf{x_{complex}} = \sum \mathbf{x_{out}}$ 
 
-The aboved representation can be fed into an MLP to predict the binding affinity (treat this as a regression task)
+The aboved representation can be fed into an MLP to predict the binding affinity (as a regression task)
 
 ## Data processing
 
