@@ -1,6 +1,6 @@
 # Predict-Binding-Affinity-using-GNN
 
-Binding affinity is the strength of the binding interaction between a biomolecule (protein or RNA) and its ligand partner (drug). This project aims to predict the binding affinity of protein-ligand complexes, and the model is implemented based on the method in [Predicting drug-target interaction using 3D structure-embedded graph representations from graph neural networks](https://arxiv.org/abs/1904.08144)
+Binding affinity is the strength of the binding interaction between a biomolecule (protein or RNA) and its ligand partner (drug). This project aims to predict the binding affinity of protein-ligand complexes using Graph Neural Networks, and the model is implemented based on the method in [Predicting drug-target interaction using 3D structure-embedded graph representations from graph neural networks](https://arxiv.org/abs/1904.08144)
 
 ## Model's Architecture
 
@@ -75,12 +75,16 @@ Subtracting 2 node features, the model will learn the differences when the prote
 Representation of the ligand-protein complex:
 $\mathbf{x_{complex}} = \sum \mathbf{x_{out}}$ 
 
-The aboved representation can be fed into a MLP to predict the binding affinity (treat this as a regression task)
+The aboved representation can be fed into an MLP to predict the binding affinity (treat this as a regression task)
 
 ## Data processing
 
-All data processing functions in '''utils.py'''
+All data processing functions in '''utils.py''' is specialized for PDBbind Dataset. After PDBbind Dataset is downloaded, '''root''', '''data_dir''', and '''affinity_file''' in '''config.py''' should be changed based on the dataset's location.
+
+## Parameters and Model Training
+
+All of the parameters can be changed by modifying the '''config.py''' file, and the model can be trained by running '''main.py'''
 
 ## References
 
-
+Jaechang Lim, Seongok Ryu, Kyubyong Park, Yo Joong Choe, Jiyeon Ham, and Woo Youn Kim. 2019. Predicting drug–target interaction using a novel graph neural network with 3D structure-embedded graph representation. Journal of chemical information and modeling 59, 9 (2019), 3981–3988. https://pubs.acs.org/doi/abs/10.1021/acs.jcim.9b00387
