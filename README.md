@@ -1,12 +1,11 @@
 # Predict-Binding-Affinity-using-GNN
-
-Binding affinity is the strength of the binding interaction between a biomolecule (protein or RNA) and its ligand partner (drug). This project aims to predict the binding affinity of protein-ligand complexes using Graph Neural Networks, and the model is implemented based on the method in [Predicting drug-target interaction using 3D structure-embedded graph representations from graph neural networks](https://arxiv.org/abs/1904.08144)
+Binding affinity is the strength of the binding interaction between a biomolecule (e.g. protein or RNA) and its ligand partner (e.g. drug or inhibitor). Using binding affinity as measurement can help design drugs that bind selectively to their target. This project aims to predict the binding affinity of protein-ligand complexes using Graph Neural Networks, and the model is implemented based on the method in [Predicting drug-target interaction using 3D structure-embedded graph representations from graph neural networks](https://arxiv.org/abs/1904.08144)
 
 ## Model's Architecture
 
-* Embedding the 3D structure of a protein-ligand complex
+* Embed the 3D structure of a protein-ligand complex
 
-$\mathbf{A}^1$ adjacency matrix for covalent bond (only consider intramolecular forces)
+$\mathbf{A}^1$: adjacency matrix for covalent bond (only consider intramolecular forces)
 
 $$
 \begin{split}
@@ -18,7 +17,7 @@ $$
 \end{split}
 $$
 
-$\mathbf{A}^2$ adjacency matrix for covalent and non-covalent bond (consider intermolecular + intramolecular forces)
+$\mathbf{A}^2$: adjacency matrix for covalent and non-covalent bond (consider intermolecular + intramolecular forces)
 
 $$
 \begin{split}
