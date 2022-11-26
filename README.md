@@ -38,7 +38,7 @@ where $\alpha, \beta$ are learnable parameters, and $e^{-(d_{ij} - \alpha)^2 / \
 Input: node features $\mathbf{X_{\text{in}}} = \{\mathbf{x}_1, \dots, \mathbf{x}_N\}$ with $\mathbf{x}_i \in \R^{F}$ ($F$ is the number of features, $N$ is the number of nodes)
 
 Transform each node by a learable weight matrix $W \in \mathbb{R}^{F \times F}$: 
-$$ \mathbf{x}_{i} = W\mathbf{x}_{i} $$
+$$\mathbf{x}_{i} = W\mathbf{x}_{i}$$
 
 Compute attention coefficient (the importand of $i^{th}$ node feature to $j^{th}$ node feature): 
 $$ e_{ij} = e_{ji} = \mathbf{x}^{T}_i \mathbf{E} \mathbf{x}_j + \mathbf{x}^{T}_j \mathbf{E} \mathbf{x}_i $$
