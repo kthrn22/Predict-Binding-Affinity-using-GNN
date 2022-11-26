@@ -45,10 +45,10 @@ $$ e_{ij} = e_{ji} = \mathbf{x}^{T}_i \mathbf{E} \mathbf{x}_j + \mathbf{x}^{T}_j
 with $\mathbf{E} \in R^{F \times F}$ is a learnable matrix, only compute $e_{ij}$ if $\mathbf{A}_{ij} = \mathbf{A}_{ij} >0 $
 
 Normalize attention coefficient: 
-$$ a_{ij} = \frac{\exp(e_{ij})}{\sum_{j \in N(i)} \exp(e_{ij})} \mathbf{A}_{ij} $$
+$$a_{ij} = \frac{\exp(e_{ij})}{\sum_{j \in N(i)} \exp(e_{ij})} \mathbf{A}_{ij}$$
 
 Update: 
-$$ \mathbf{\hat{x}}_i = \sum_{j \in N(i)} a_{ij}\mathbf{x}_j $$ 
+$$\mathbf{\hat{x}}_i = \sum_{j \in N(i)} a_{ij}\mathbf{x}_j$$ 
 (Aggregration step, might try other aggregrate operator, GAT flavour)
 
 Gated: 
