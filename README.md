@@ -79,11 +79,11 @@ The aboved representation can be fed into an MLP to predict the binding affinity
 
 ## Data processing
 
-All data processing functions in '''utils.py''' is specialized for PDBbind Dataset. After PDBbind Dataset is downloaded, '''root''', '''data_dir''', and '''affinity_file''' in '''config.py''' should be changed based on the dataset's location.
+All data processing functions in ```utils.py``` is specialized for PDBbind Dataset. After PDBbind Dataset is downloaded, ```root```, ```data_dir```, and ```affinity_file``` in ```config.py``` should be changed based on the dataset's location.
 
 ## Parameters and Model Training
 
-All of the parameters can be changed by modifying the '''config.py''' file, and the model can be trained by running '''main.py'''
+All of the parameters can be changed by modifying the ```config.py``` file, and the model can be trained by running ```main.py```
 
 ## References
 
