@@ -69,7 +69,7 @@ $\mathbf{x_{out}^1} = Graph-attention-layer(\mathbf{A^1}, \mathbf{x})$, $\mathbf
 
 $\mathbf{x_{out}} = \mathbf{x_{out}^2} - \mathbf{x_{out}^1}$
 
-Subtracting 2 node features, the model will learn the differences when the protein and ligan binds $(\mathbf{x_{out}^2})$ and when they are seperated $(\mathbf{x_{out}^1})$
+Subtracting 2 node features, the model will learn the differences when the protein and ligand binds $(\mathbf{x_{out}^2})$ and when they are seperated $(\mathbf{x_{out}^1})$
 
 Representation of the ligand-protein complex:
 $\mathbf{x_{complex}} = \sum \mathbf{x_{out}}$ 
