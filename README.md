@@ -62,7 +62,7 @@ Finalize:
 
 $$ \mathbf{x_{out}} = z_i \mathbf{x_{in}} + (1- z_i) \mathbf{\hat{x_i}} $$
 
-where $z_i$ controls how much should the input ($\mathbf{x}_{in}$) should be delivered directly to the next layer
+where $z_i$ controls how much should the input ($\mathbf{x_{in}}$) should be delivered directly to the next layer
 
 * Architecture:
 
