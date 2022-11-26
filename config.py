@@ -1,0 +1,21 @@
+class Config:
+    root = "./"
+    data_dir = "./refined_set"
+    affinity_file = "./PDBbind_2016_plain_text_index/index/INDEX_refined_data.2016"
+    val_split = 0.4
+    test_split = 0.5
+    train_batch_size = 512
+    val_batch_size = 256
+    test_batch_size = 256
+    learning_rate = 0.065
+    use_scheduler = False
+    step_size = 5
+    gamma = 0.25
+    in_channels = 5
+    num_gnn_layers = 2
+    num_linear_layers = 1
+    linear_out_channels = [5, 5] 
+    device = "cpu"
+    num_epochs = 20
+    early_stop = True
+    patience = 5
